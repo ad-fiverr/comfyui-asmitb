@@ -35,12 +35,12 @@ COPY nsfw-ultratozimage-asmitb_v2.json /ComfyUI/user/default/workflows/nsfw-work
 COPY sfw-comfyui-workflow-asmitb.json /ComfyUI/user/default/workflows/sfw-workflow.json
 
 
-RUN apt-get update -qq && apt-get install -y -qq git wget && \
+RUN apt-get update -qq && apt-get install -y -qq git wget dos2unix && \
     pip install -q gdown huggingface_hub && \
     rm -rf /var/lib/apt/lists/*
 
 COPY setup_models.sh /setup_models.sh
-RUN chmod +x /setup_models.sh
+RUN dos2unix /setup_models.sh && chmod +x /setup_models.sh
 
 
 EXPOSE 8188
