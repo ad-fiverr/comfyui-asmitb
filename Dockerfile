@@ -36,7 +36,7 @@ COPY sfw-comfyui-workflow-asmitb.json /ComfyUI/user/default/workflows/sfw-workfl
 
 
 RUN apt-get update -qq && apt-get install -y -qq git wget dos2unix && \
-    pip install -q gdown huggingface_hub && \
+    pip install -q gdown huggingface_hub comfyui-manager && \
     rm -rf /var/lib/apt/lists/*
 
 COPY setup_models.sh /setup_models.sh

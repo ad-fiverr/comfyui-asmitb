@@ -128,6 +128,19 @@ download_if_missing "https://huggingface.co/ashllay/YOLO_Models/resolve/main/bbo
 download_if_missing "https://huggingface.co/ashllay/YOLO_Models/resolve/main/bbox/vagina-v3.2.pt" \
     "vagina-v3.2.pt"
 
+
+
+echo "[ BBOX Ultralytics SEGM ]"
+cd ${COMFYUI_DIR}/models/ultralytics/segm
+download_if_missing "https://huggingface.co/Bingsu/adetailer/resolve/main/person_yolov8m-seg.pt" \
+    "person_yolov8m-seg.pt"
+
+
+
+
+
+
+
 # ── Upscaler Models ──────────────────────────────────────────────────────────
 echo ""
 echo "[ Upscaler Models ]"
@@ -163,4 +176,6 @@ echo "================================================"
 echo "  Setup full. starting ComfyUI..."
 echo "================================================"
 
-exec python /workspace/ComfyUI/main.py --listen 0.0.0.0 --port 8188
+chmod -R 777 /workspace/ComfyUI
+
+exec python /workspace/ComfyUI/main.py --listen 0.0.0.0 --port 8188 --enable-manager
