@@ -10,7 +10,7 @@ RUN apt-get update -qq && apt-get install -y -qq git wget && \
 
 # Custom Nodes en /ComfyUI (se copian al workspace en el primer arranque)
 RUN cd /ComfyUI/custom_nodes && \
-    rm -rf rgthree-comfy ComfyUI-Impact-Pack ComfyUI_essentials ComfyUI-GGUF ComfyUI-Impact-Subpack cg-use-everywhere && \
+    rm -rf rgthree-comfy ComfyUI-Impact-Pack ComfyUI_essentials ComfyUI-GGUF ComfyUI-Impact-Subpack cg-use-everywhere ComfyMath && \
     git clone --depth=1 https://github.com/rgthree/rgthree-comfy && \
     git clone --depth=1 https://github.com/ltdrdata/ComfyUI-Impact-Pack && \
     git clone --depth=1 https://github.com/cubiq/ComfyUI_essentials && \
@@ -19,7 +19,7 @@ RUN cd /ComfyUI/custom_nodes && \
     git clone --depth=1 https://github.com/evanspearman/ComfyMath && \
     git clone --depth=1 https://github.com/chrisgoringe/cg-use-everywhere
 
-RUN for dir in rgthree-comfy ComfyUI-Impact-Pack ComfyUI_essentials ComfyUI-GGUF ComfyUI-Impact-Subpack cg-use-everywhere; do \
+RUN for dir in rgthree-comfy ComfyUI-Impact-Pack ComfyUI_essentials ComfyUI-GGUF ComfyUI-Impact-Subpack cg-use-everywhere ComfyMath; do \
       REQ="/ComfyUI/custom_nodes/${dir}/requirements.txt"; \
       if [ -f "$REQ" ]; then pip install -q -r "$REQ"; fi; \
     done
@@ -30,8 +30,8 @@ RUN rm -rf /ComfyUI/ComfyUI-Login /ComfyUI/ComfyUI-login
 
 
 RUN mkdir -p /ComfyUI/user/default/workflows
-COPY nsfw-ultratozimage-asmitb.json /ComfyUI/user/default/workflows/nsfw-workflow.json
-COPY nsfw-ultratozimage-asmitb_v2.json /ComfyUI/user/default/workflows/nsfw-workflow_v2.json
+COPY nnsfw-ultratozimage-asmitb.json /ComfyUI/user/default/workflows/nsfw-workflow.json
+COPY nnsfw-ultratozimage-asmitb_v2.json /ComfyUI/user/default/workflows/nsfw-workflow_v2.json
 COPY sfw-comfyui-workflow-asmitb.json /ComfyUI/user/default/workflows/sfw-workflow.json
 
 
