@@ -30,8 +30,8 @@ RUN rm -rf /ComfyUI/ComfyUI-Login /ComfyUI/ComfyUI-login
 
 
 RUN mkdir -p /ComfyUI/user/default/workflows
-COPY nnsfw-ultratozimage-asmitb.json /ComfyUI/user/default/workflows/nsfw-workflow.json
-COPY nnsfw-ultratozimage-asmitb_v2.json /ComfyUI/user/default/workflows/nsfw-workflow_v2.json
+COPY nsfw-ultratozimage-asmitb.json /ComfyUI/user/default/workflows/nsfw-workflow.json
+COPY nsfw-ultratozimage-asmitb_v2.json /ComfyUI/user/default/workflows/nsfw-workflow_v2.json
 COPY sfw-comfyui-workflow-asmitb.json /ComfyUI/user/default/workflows/sfw-workflow.json
 
 
