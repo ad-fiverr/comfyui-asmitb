@@ -18,7 +18,7 @@ RUN cd /ComfyUI/custom_nodes && \
     git clone --depth=1 https://github.com/ltdrdata/ComfyUI-Impact-Subpack && \
     git clone --depth=1 https://github.com/evanspearman/ComfyMath && \
     git clone --depth=1 https://github.com/chrisgoringe/cg-use-everywhere && \
-    git clone --depth=1 https://github.com/pythongosssss/ComfyUI-Custom-Scripts &&
+    git clone --depth=1 https://github.com/pythongosssss/ComfyUI-Custom-Scripts && \
     git clone --depth=1 https://github.com/Smirnov75/ComfyUI-mxToolkit && \
     git clone --depth=1 https://github.com/crystian/comfyui-crystools && \
     git clone --depth=1 https://github.com/chflame163/ComfyUI_LayerStyle && \
