@@ -10,7 +10,7 @@ RUN apt-get update -qq && apt-get install -y -qq git wget && \
 
 # Custom Nodes en /ComfyUI (se copian al workspace en el primer arranque)
 RUN cd /ComfyUI/custom_nodes && \
-    rm -rf rgthree-comfy ComfyUI-Impact-Pack ComfyUI_essentials ComfyUI-GGUF ComfyUI-Impact-Subpack cg-use-everywhere ComfyMath && \
+    rm -rf rgthree-comfy ComfyUI-Impact-Pack ComfyUI_essentials ComfyUI-GGUF ComfyUI-Impact-Subpack cg-use-everywhere ComfyMath ComfyUI-mxToolkit comfyui-crystools ComfyUI_LayerStyle ComfyUI_Fill-Nodes ComfyUI-Image-Saver && \
     git clone --depth=1 https://github.com/rgthree/rgthree-comfy && \
     git clone --depth=1 https://github.com/ltdrdata/ComfyUI-Impact-Pack && \
     git clone --depth=1 https://github.com/cubiq/ComfyUI_essentials && \
@@ -18,9 +18,14 @@ RUN cd /ComfyUI/custom_nodes && \
     git clone --depth=1 https://github.com/ltdrdata/ComfyUI-Impact-Subpack && \
     git clone --depth=1 https://github.com/evanspearman/ComfyMath && \
     git clone --depth=1 https://github.com/chrisgoringe/cg-use-everywhere && \
-    git clone --depth=1 https://github.com/pythongosssss/ComfyUI-Custom-Scripts
+    git clone --depth=1 https://github.com/pythongosssss/ComfyUI-Custom-Scripts &&
+    git clone --depth=1 https://github.com/Smirnov75/ComfyUI-mxToolkit && \
+    git clone --depth=1 https://github.com/crystian/comfyui-crystools && \
+    git clone --depth=1 https://github.com/chflame163/ComfyUI_LayerStyle && \
+    git clone --depth=1 https://github.com/filliptm/ComfyUI_Fill-Nodes && \
+    git clone --depth=1 https://github.com/farizrifqi/ComfyUI-Image-Saver
 
-RUN for dir in rgthree-comfy ComfyUI-Impact-Pack ComfyUI_essentials ComfyUI-GGUF ComfyUI-Impact-Subpack cg-use-everywhere ComfyMath ComfyUI-Custom-Scripts; do \
+RUN for dir in rgthree-comfy ComfyUI-Impact-Pack ComfyUI_essentials ComfyUI-GGUF ComfyUI-Impact-Subpack cg-use-everywhere ComfyMath ComfyUI-Custom-Scripts ComfyUI-mxToolkit comfyui-crystools ComfyUI_LayerStyle ComfyUI_Fill-Nodes ComfyUI-Image-Saver; do \
       REQ="/ComfyUI/custom_nodes/${dir}/requirements.txt"; \
       if [ -f "$REQ" ]; then pip install -q -r "$REQ"; fi; \
     done
