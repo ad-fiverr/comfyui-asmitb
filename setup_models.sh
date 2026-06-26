@@ -92,7 +92,13 @@ cd ${COMFYUI_DIR}/models/loras/asmitb-sdxl
 download_if_missing "https://huggingface.co/exjadev/asmitb-sdxl/resolve/main/asmitb-000018.safetensors" \
     "asmitb-000018.safetensors"
 
-
+cd ${COMFYUI_DIR}/models/loras/
+download_if_missing "https://civitai.red/api/download/models/2749020?type=Model&format=SafeTensor&token=e3a803e3831ec4832fd75d014b2d385e" \
+    "NippleDiffusion.safetensors"
+download_if_missing "https://civitai.red/api/download/models/2960754?type=Model&format=SafeTensor&token=e3a803e3831ec4832fd75d014b2d385e" \
+    "PussyDiffusion.safetensors"
+download_if_missing "https://civitai.red/api/download/models/2617751?type=Model&format=SafeTensor&token=e3a803e3831ec4832fd75d014b2d385e" \
+    "Realistic_Nudes.safetensors"
 
 
 
@@ -108,14 +114,19 @@ echo "[ Diffusion Models ]"
 cd ${COMFYUI_DIR}/models/diffusion_models && rm -rf split_files/
 download_if_missing "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors" \
     "z_image_turbo_bf16.safetensors"
-download_if_missing "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors" \
-    "z_image_turbo_bf16.safetensors"
+download_if_missing "https://civitai.red/api/download/models/2985440?type=Model&format=SafeTensor&token=e3a803e3831ec4832fd75d014b2d385e" \
+    "snofsSexNudesAndOtherFunStuff_v14Distilled.safetensors"
+download_if_missing "https://huggingface.co/black-forest-labs/FLUX.2-klein-9b-fp8/resolve/main/flux-2-klein-9b-fp8.safetensors" \
+    "flux-2-klein-9b-fp8.safetensors"
+
 
 # --- TEXT ENCODERS ---
 echo "[ Text Encoders ]"
 cd ${COMFYUI_DIR}/models/text_encoders && rm -rf split_files/
 download_if_missing "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors" \
     "qwen_3_4b.safetensors"
+download_if_missing "https://huggingface.co/silveroxides/FLUX.2-dev-fp8_scaled/resolve/3e947e2aac04fdd8fea4be33a06842f2935fc161/qwen3_8b_abliterated_v2-fp8mixed.safetensors" \
+    "qwen3_8b_abliterated_v2-fp8mixed.safetensors"
 
 # ── BBOX Ultralytics ──────────────────────────────────────────────────────────
 echo ""
@@ -127,6 +138,10 @@ download_if_missing "https://huggingface.co/ashllay/YOLO_Models/resolve/main/bbo
     "female_breast-v4.2.pt"
 download_if_missing "https://huggingface.co/ashllay/YOLO_Models/resolve/main/bbox/vagina-v3.2.pt" \
     "vagina-v3.2.pt"
+download_if_missing "https://huggingface.co/ashllay/YOLO_Models/resolve/main/bbox/full_eyes_detect_v1.pt" \
+    "full_eyes_detect_v1.pt"
+download_if_missing "https://huggingface.co/ashllay/YOLO_Models/resolve/main/bbox/full_eyes_detect_v1.pt" \
+    "full_eyes_detect_v1.pt"
 
 
 
