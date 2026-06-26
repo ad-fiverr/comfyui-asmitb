@@ -168,6 +168,8 @@ echo "[ VAE ]"
 cd ${COMFYUI_DIR}/models/vae && rm -rf split_files/
 download_if_missing "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/vae/ae.safetensors" \
     "ae.safetensors"
+download_if_missing "https://huggingface.co/Comfy-Org/flux2-dev/resolve/main/split_files/vae/flux2-vae.safetensors" \
+    "flux2-vae.safetensors"
 
 # --- SAM3 ---
 echo "[ SAM3 ]"
