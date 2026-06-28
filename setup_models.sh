@@ -59,7 +59,7 @@ pip install -U huggingface_hub
 
 echo "Auth with Hugging Face..."
 # Usamos el comando de Python para el login con el token proporcionado
-python3 -c "from huggingface_hub import login; login(token="$HF_TOKEN_loras")"
+python3 -c "from huggingface_hub import login; login(token="$HF_TOKEN")"
 
 # ── SECCIÓN DE DESCARGAS (Nuevos Comandos Integrados) ─────────────────────────
 
@@ -113,20 +113,18 @@ download_if_missing "https://civitai.red/api/download/models/2755468?type=Model&
 echo "[ Diffusion Models ]"
 cd ${COMFYUI_DIR}/models/diffusion_models && rm -rf split_files/
 download_if_missing "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/diffusion_models/z_image_turbo_bf16.safetensors" \
-    "z_image_turbo_bf16.safetensors"
-download_if_missing "https://civitai.red/api/download/models/2985440?type=Model&format=SafeTensor&token=e3a803e3831ec4832fd75d014b2d385e" \
-    "snofsSexNudesAndOtherFunStuff_v14Distilled.safetensors"
+    "z_image_turbo_bf16.safetensors" "$HF_TOKEN"
 download_if_missing "https://huggingface.co/black-forest-labs/FLUX.2-klein-9b-fp8/resolve/main/flux-2-klein-9b-fp8.safetensors" \
-    "flux-2-klein-9b-fp8.safetensors"
+    "flux-2-klein-9b-fp8.safetensors" "$HF_TOKEN"
 
 
 # --- TEXT ENCODERS ---
 echo "[ Text Encoders ]"
 cd ${COMFYUI_DIR}/models/text_encoders && rm -rf split_files/
 download_if_missing "https://huggingface.co/Comfy-Org/z_image_turbo/resolve/main/split_files/text_encoders/qwen_3_4b.safetensors" \
-    "qwen_3_4b.safetensors"
-download_if_missing "https://huggingface.co/silveroxides/FLUX.2-dev-fp8_scaled/resolve/3e947e2aac04fdd8fea4be33a06842f2935fc161/qwen3_8b_abliterated_v2-fp8mixed.safetensors" \
-    "qwen3_8b_abliterated_v2-fp8mixed.safetensors"
+    "qwen_3_4b.safetensors" "$HF_TOKEN"
+download_if_missing "https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-9b/resolve/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors" \
+    "qwen_3_8b_fp8mixed.safetensors" "$HF_TOKEN"
 
 # ── BBOX Ultralytics ──────────────────────────────────────────────────────────
 echo ""
